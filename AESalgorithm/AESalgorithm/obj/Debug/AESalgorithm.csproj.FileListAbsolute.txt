@@ -1,0 +1,10 @@
+C:\Users\Viktorija\source\repos\AESalgorithm\AESalgorithm\bin\Debug\AESalgorithm.exe.config
+C:\Users\Viktorija\source\repos\AESalgorithm\AESalgorithm\bin\Debug\AESalgorithm.exe
+C:\Users\Viktorija\source\repos\AESalgorithm\AESalgorithm\bin\Debug\AESalgorithm.pdb
+C:\Users\Viktorija\source\repos\AESalgorithm\AESalgorithm\obj\Debug\AESalgorithm.csproj.AssemblyReference.cache
+C:\Users\Viktorija\source\repos\AESalgorithm\AESalgorithm\obj\Debug\AESalgorithm.Properties.Resources.resources
+C:\Users\Viktorija\source\repos\AESalgorithm\AESalgorithm\obj\Debug\AESalgorithm.csproj.GenerateResource.cache
+C:\Users\Viktorija\source\repos\AESalgorithm\AESalgorithm\obj\Debug\AESalgorithm.csproj.CoreCompileInputs.cache
+C:\Users\Viktorija\source\repos\AESalgorithm\AESalgorithm\obj\Debug\AESalgorithm.exe
+C:\Users\Viktorija\source\repos\AESalgorithm\AESalgorithm\obj\Debug\AESalgorithm.pdb
+C:\Users\Viktorija\source\repos\AESalgorithm\AESalgorithm\obj\Debug\AESalgorithm.Form1.resources
