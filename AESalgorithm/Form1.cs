@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 
 namespace AESalgorithm
@@ -19,17 +20,13 @@ namespace AESalgorithm
 
         private void SetMatricaButton_Click(object sender, EventArgs e)
         {
-            DataService dataService = new DataService(@"C:\Users\Viktorija\source\repos\AESalgorithm\BusenosMatrica.xls"); //sukūriama klasė kuriai priskiriamas iš kur reikės nuskaityti failą
-            currentGrid= dataService.DataServerFromExcel();                                                                //Nuskaitomas excel failas
-            dataGrid.DataSource = currentGrid;                                                                             //perduodama matrica išvedimui į UI duomenų lentelę
+                                
         }
 
         private void createMatricaButton_Click(object sender, EventArgs e)
         {
-            DataService dataService = new DataService();                                                                  //sukūriama klasė kurios paskirtis dirbti su duomenimis
-            currentGrid = dataService.NewDataTable();                                                                     //sukūriama tuščia lentelė
-            dataGrid.DataSource = currentGrid;                                                                            //priskiriama tuščia lentelė UI išvedimui
-
+            DataService dataService = new DataService();
+            SetAts.Text = dataService.GetTextFromFile();
         }
 
         private void SifravButton_Click(object sender, EventArgs e)

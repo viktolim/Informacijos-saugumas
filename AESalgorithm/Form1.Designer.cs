@@ -33,8 +33,7 @@ namespace AESalgorithm
             this.label1 = new System.Windows.Forms.Label();
             this.GetAts = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.createMatricaButton = new System.Windows.Forms.Button();
+            this.decryption = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.SetAts = new System.Windows.Forms.TextBox();
             this.SifravButton = new System.Windows.Forms.Button();
@@ -43,7 +42,6 @@ namespace AESalgorithm
             this.label4 = new System.Windows.Forms.Label();
             this.SetModa = new System.Windows.Forms.ComboBox();
             this.setKodas = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,25 +82,15 @@ namespace AESalgorithm
             this.label2.TabIndex = 3;
             this.label2.Text = "Šifruotas tekstas:";
             // 
-            // dataGrid
+            // decryption
             // 
-            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid.Location = new System.Drawing.Point(454, 280);
-            this.dataGrid.Name = "dataGrid";
-            this.dataGrid.RowHeadersWidth = 51;
-            this.dataGrid.RowTemplate.Height = 24;
-            this.dataGrid.Size = new System.Drawing.Size(125, 158);
-            this.dataGrid.TabIndex = 4;
-            // 
-            // createMatricaButton
-            // 
-            this.createMatricaButton.Location = new System.Drawing.Point(227, 317);
-            this.createMatricaButton.Name = "createMatricaButton";
-            this.createMatricaButton.Size = new System.Drawing.Size(143, 33);
-            this.createMatricaButton.TabIndex = 6;
-            this.createMatricaButton.Text = "Sukurti ";
-            this.createMatricaButton.UseVisualStyleBackColor = true;
-            this.createMatricaButton.Click += new System.EventHandler(this.createMatricaButton_Click);
+            this.decryption.Location = new System.Drawing.Point(227, 317);
+            this.decryption.Name = "decryption";
+            this.decryption.Size = new System.Drawing.Size(143, 33);
+            this.decryption.TabIndex = 6;
+            this.decryption.Text = "Sukurti ";
+            this.decryption.UseVisualStyleBackColor = true;
+            this.decryption.Click += new System.EventHandler(this.createMatricaButton_Click);
             // 
             // SaveButton
             // 
@@ -199,13 +187,11 @@ namespace AESalgorithm
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SifravButton);
-            this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.SaveButton);
-            this.Controls.Add(this.createMatricaButton);
+            this.Controls.Add(this.decryption);
             this.Controls.Add(this.SetMatricaButton);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -218,8 +204,7 @@ namespace AESalgorithm
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox GetAts;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGrid;
-        private System.Windows.Forms.Button createMatricaButton;
+        private System.Windows.Forms.Button decryption;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.TextBox SetAts;
         private System.Windows.Forms.Button SifravButton;
