@@ -19,7 +19,7 @@ namespace AESalgorithm
         public DataService() { }
         public void SaveFile(string text)           //išsaugomas failas į nurodytą txt failą
         {
-            TextWriter txt = new StreamWriter(@"C:\Users\Viktorija\source\repos\AESalgorithm\Data.txt");
+            TextWriter txt = new StreamWriter(@"C:\Users\Viktorija\source\repos\AESalgorithm\Result.txt");
             txt.Write(text);
             txt.Close();
         }
@@ -27,9 +27,8 @@ namespace AESalgorithm
         {
             try
             {
-                StreamReader sr = new StreamReader(@"C:\Users\Viktorija\source\repos\Data.txt");
+                StreamReader sr = new StreamReader(@"C:\Users\Viktorija\source\repos\AESalgorithm\Data.txt");
                 string line = sr.ReadLine();
-        
                 sr.Close();
                 return line;
             }

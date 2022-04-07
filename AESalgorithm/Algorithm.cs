@@ -10,50 +10,66 @@ namespace AESalgorithm
     class Algorithm
     {
         private AesCryptoServiceProvider provider;
+        private string encrypt;
         public Algorithm()
         {
             provider = new AesCryptoServiceProvider();
-            provider.BlockSize = 128;                     
-            provider.GenerateIV();
             provider.Padding = PaddingMode.PKCS7;
+
         }
-        public string encryption(string input, string moda,string kodas)
+        public string encryption(string input, string moda, string kodas, string vector, int des)
         {
-            setKey(kodas);
-            return Convert.ToBase64String(provider.Key);
-            setModa(moda);
-            setKey(kodas);
-            ICryptoTransform transform = provider.CreateEncryptor();
-            byte[] encrypted = transform.TransformFinalBlock(ASCIIEncoding.ASCII.GetBytes(input), 0, input.Length);
-            return Convert.ToBase64String(encrypted);
-        }
-        private void setModa(string moda)
-        {
-            if (moda == "CBC") provider.Mode = CipherMode.CBC;
-            else if (moda == "CFB") provider.Mode = CipherMode.CFB;
-            else if (moda == "CFB") provider.Mode = CipherMode.CFB;
-            else if (moda == "ECB") provider.Mode = CipherMode.ECB;
-            else if (moda == "OFB") provider.Mode = CipherMode.OFB;
-        }
-        private void setKey(string kodas)
-        {
-          
-           if (kodas =="128")
+            try
             {
-                provider.KeySize = 128;
+                setKey(kodas);
+                setModa(moda, vector);
+                ICryptoTransform transform;
+                provider.BlockSize = kodas.Length * 8;
+                if (des == 1)
+                {
+                    setModa(moda, vector);
+                    transform = provider.CreateEncryptor();
+                    byte[] src = Encoding.UTF8.GetBytes(input);
+                    byte[] encrypted = transform.TransformFinalBlock(src, 0, src.Length);
+                    encrypt = Convert.ToBase64String(encrypted);
+                    return BitConverter.ToString(encrypted).Replace(" - ", " ");
+                }
+                else
+                {
+                    transform = provider.CreateDecryptor();
+                    byte[] src = Convert.FromBase64String(input);
+                    byte[] encrypted = transform.TransformFinalBlock(src, 0, src.Length);
+                    return Encoding.UTF8.GetString(encrypted);
+                }
+
             }
-            else if (kodas == "192")
+            catch(Exception e)
             {
-                provider.KeySize = 192;
+                return null;
             }
-            else if (kodas == "256")
+     
+        }
+        private void setModa(string moda, string vector)
+        {
+            if (moda == "CBC")
             {
-                provider.KeySize = 256;
+                provider.Mode = CipherMode.CBC;
+                provider.IV = Encoding.UTF8.GetBytes(vector);
             }
             else
             {
-                provider.GenerateKey();
+                provider.Mode = CipherMode.ECB;
             }
         }
+        private void setKey(string input)
+        {
+            provider.KeySize = input.Length * 8;
+            provider.Key = Encoding.UTF8.GetBytes(input);
+        }
+        public string baseEncrypt()
+        {
+            return encrypt;
+        }
+
     }
 }
